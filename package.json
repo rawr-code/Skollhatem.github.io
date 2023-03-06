@@ -14,5 +14,8 @@
     "@astrojs/tailwind": "^3.0.1",
     "astro": "^2.0.15",
     "tailwindcss": "^3.2.7"
+  },
+  "devDependencies": {
+    "@vite-pwa/astro": "^0.0.5"
   }
 }
