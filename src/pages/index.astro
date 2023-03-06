@@ -1,82 +1,242 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Github from "../assets/github.astro";
+import Linkedin from "../assets/linkedin.astro";
+import Youtube from "../assets/youtube.astro";
+import Logo from "../assets/logo.astro";
+
 import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
+
+const truncate = (text: string, length: number = 56) =>
+  text.length > length - 5 ? `${text.substring(0, length - 5)}...` : text;
+
+const videos = [
+  {
+    title:
+      "El Curioso Minimalismo de Super Mario World (RETROSPECTIVA) | PLANO DE JUEGO",
+    img: "https://i.ytimg.com/vi/fyUV0Ll_Mt0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAnqmjl5lMtyuXajuEXyVIi-xJ7Hg",
+  },
+  {
+    title: "Herramientas de Software que todo programador llegará a usar",
+    img: "https://i.ytimg.com/vi/t4pbPOEzEiE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCzGCO2_1Lkva0uJwAj7fPCKSz2Kw",
+  },
+  {
+    title:
+      "Build a MERN React Admin Dashboard | Redux Toolkit Query, Backend Focus, Deployment, Data Modeling",
+    img: "https://i.ytimg.com/vi/0cPCMIuDk2I/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA0V--ei9rIpg4xSZcsgN1-sF8KYg",
+  },
+];
+
+const posts = [
+  {
+    title: "Crea Aplicaciones de Escritorio con JavaScript y Electron",
+    description:
+      "Usando Flyyer puedes crear og:images para tu aplicación React o Vue.js. Está creado con estándares web y funciona en todos...",
+    img: "https://i.ytimg.com/vi/ir9yaSgbOdY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAXsprYmpd2fSbrhCXUeKowYS2geQ",
+  },
+  {
+    title: "¡Tailwind CSS está creciendo! Extensiones VSCode y más",
+    description:
+      "En este blog post aprenderás qué es Tailwind, por qué es importante, cómo utilizar las extensiones de VS Code y mucho más.",
+    img: "https://i.ytimg.com/vi/FMveryfDn-c/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB5sBezbcQOb3QowKGuA84Y4Uk8bg",
+  },
+  {
+    title: "Portfolio Website With React JS & Tailwind CSS",
+    description:
+      "En este blog post aprenderás qué es Tailwind, por qué es importante, cómo utilizar las extensiones de VS Code y mucho más.",
+    img: "https://i.ytimg.com/vi/Hps-XPN1GeE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDN6F45hVY6BXOpTlaJ9PUdMq99OQ",
+  },
+  {
+    title: "Coding A Pong Game in Python",
+    description:
+      "En este blog post aprenderás qué es Tailwind, por qué es importante, cómo utilizar las extensiones de VS Code y mucho más.",
+    img: "https://i.ytimg.com/vi/HNCAi0sjAz8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAB4KbQ4WXmyKdUyzUbvG89o2h15g",
+  },
+];
+
+const links = [
+  {
+    label: "About",
+    url: "/",
+  },
+  {
+    label: "Works",
+    url: "/",
+  },
+  {
+    label: "Contact",
+    url: "/",
+  },
+];
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-    <p class="instructions">
-      To get started, open the directory <code>src/pages</code> in your project.<br
-      />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-    </p>
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
+<Layout title="Emmanuel Villegas">
+  <main class="px-4 pt-6 lg:px-12 lg:pt-8 max-w-screen-lg lg:mx-auto xl:px-0">
+    <!-- Header -->
+    <header>
+      <nav class="flex justify-between">
+        <a href="/">
+          <span class="text-sm lg:text-base font-bold">Emmanuel Villegas</span>
+        </a>
+        <div class="hidden lg:flex lg:space-x-6">
+          {
+            links.map((link) => (
+              <a href={link.url} class="text-sm lg:text-base font-bold">
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+        <div class="flex items-center space-x-4">
+          <span class="text-sm lg:text-base"><strong>ENG</strong>|ES</span>
+          <span class="flex">
+            <img src="/images/svg/sun.svg" alt="sun" width="20" height="20" />
+          </span>
+          <div class="lg:hidden">
+            <img src="/images/svg/dots.svg" alt="dots" width="20" height="20" />
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="mt-24 lg:mt-32 lg:flex lg:flex-row-reverse">
+      <!-- image -->
+      <div class="w-full flex justify-center lg:w-5/12">
+        <div
+          class="relative w-max h-max p-1 rounded-[48px] border-[6px] border-primary"
+        >
+          <!-- Logo -->
+          <div
+            class="absolute -right-7 -top-7 w-max h-max lg:-right-11 lg:-top-11"
+          >
+            <div
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-[33.41px]"
+            >
+              <Logo
+                svgClass="w-[25px] h-[21px] lg:w-[33.41px] lg:h-[27.43px]"
+                pathClass="fill-white"
+              />
+            </div>
+            <img
+              src="/images/svg/icon.svg"
+              alt="icon"
+              width="77.33"
+              height="77.33"
+              class="lg:w-[107.66px]"
+            />
+          </div>
+          <!-- Profile -->
+          <div
+            class="w-[148px] lg:w-[210px] bg-primary rounded-[40px] overflow-hidden"
+          >
+            <img class="w-full" src="/images/profile.png" alt="profile" />
+          </div>
+          <!-- Chat -->
+          <div
+            class="absolute -left-14 bottom-4 bg-white border-2 border-primary rounded-2xl px-3 py-2 lg:py-3 lg:px-4"
+          >
+            <p class="text-[10px] font-bold lg:text-xs">
+              “Talk is cheap.<br />Show me the code”
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-6/12">
+        <!-- Text -->
+        <div class="mt-5 mb-8 lg:mb-3">
+          <p
+            class="text-xl text-center font-gugi mb-4 lg:text-3xl lg:text-[32px] lg:text-left lg:mb-5"
+          >
+            Hi, I’m Emmanuel and I’m<br />a <span
+              class="bg-primary text-white px-1.5 py-1"
+              >Senior Frontend Engineer</span
+            >
+          </p>
+          <p class="text-xs text-center lg:text-sm lg:text-left">
+            I design and code beautyfully simple code I design and beautyfully
+            simple things, and I love what I do design and code.
+          </p>
+        </div>
+        <!-- Social -->
+        <div class="flex flex-col items-center justify-center lg:items-start">
+          <button class="border-2 rounded border-primary p-2 text-sm font-bold"
+            >LET’S CHAT!<span class="animate-blink-anim">_</span></button
+          >
+          <div class="flex mt-6 space-x-5 lg:mt-[100px]">
+            <div
+              class="bg-gray-100 w-12 h-12 rounded-full flex justify-center items-center"
+            >
+              <Github />
+            </div>
+            <div
+              class="bg-gray-100 w-12 h-12 rounded-full flex justify-center items-center"
+            >
+              <Linkedin />
+            </div>
+            <div
+              class="bg-gray-100 w-12 h-12 rounded-full flex justify-center items-center"
+            >
+              <Youtube />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-12 lg:mt-36">
+      <div>
+        <h2 class="text-base font-bold lg:text-2xl">Explore Latest Video</h2>
+        <p class="text-xs lg:text-sm">Click on play icon and enjoy video</p>
+      </div>
+      <div
+        class="relative -left-4 w-screen overflow-x-auto box-border mt-5 px-4 scrollbar-hide lg:w-full lg:left-0 lg:px-0"
+      >
+        <div class="block whitespace-nowrap lg:flex lg:space-x-5">
+          {
+            videos.map((video) => (
+              <Card title={truncate(video.title)} img={video.img} />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <section class="mt-12 lg:mt-16">
+      <div>
+        <h2 class="text-base font-bold lg:text-2xl">Explore Latest Posts</h2>
+        <p class="text-xs lg:text-sm">Click on play icon and enjoy post</p>
+      </div>
+      <div class="mt-5 lg:flex lg:space-x-5 lg:w-full">
+        <div class="lg:w-6/12">
+          <div class="w-full rounded-2xl overflow-hidden">
+            <img class="w-full" src={posts[0].img} alt="blog-1" />
+          </div>
+          <p class="text-sm font-bold mt-3">
+            {posts[0].title}
+          </p>
+          <p class="text-xs mt-3">
+            {posts[0].description}
+          </p>
+        </div>
+        <div class="mt-8 lg:mt-0 lg:w-6/12 lg:space-y-8">
+          {
+            posts.splice(1).map((post) => (
+              <div class="flex items-center mb-5 lg:space-x-3">
+                <div class="basis-4/6">
+                  <p class="text-xs font-bold">{truncate(post.title)}</p>
+                  <p class="text-xs mt-2">{truncate(post.description, 160)}</p>
+                </div>
+                <div class="basis-2/6 rounded-2xl overflow-hidden">
+                  <img class="w-full" src={post.img} alt="post-img" />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <footer class="mt-20 mb-8 flex flex-col items-center">
+      <Logo svgClass="w-[20px] h-[16.42px] mb-2" pathClass="fill-primary" />
+      <p class="text-xs text-center">
+        Copyright @ 2023 Emmanuel Villegas.<br />All Rights Reserved.
+      </p>
+    </footer>
   </main>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
-  }
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
-  }
-  .instructions code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
-  }
-</style>
