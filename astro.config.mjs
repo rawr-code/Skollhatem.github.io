@@ -7,5 +7,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   site: 'https://skollhatem.github.io/',
-  base: '/Skollhatem.github.io',
+  base: '/',
 });
