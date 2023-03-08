@@ -7,12 +7,12 @@ export interface Props {
 const { title, img } = Astro.props;
 ---
 
-<div class="inline-block mr-3 lg:mr-0 w-60 lg:w-4/12">
-  <div class="w-full rounded-2xl overflow-hidden">
+<div class="mr-3 inline-block w-60 lg:mr-0 lg:w-4/12">
+  <div class="w-full overflow-hidden rounded-2xl">
     <img class="w-full" src={img} alt="" srcset="" />
   </div>
   <p
-    class="text-xs font-bold text-primary mt-3 w-full whitespace-normal lg:text-sm"
+    class="mt-3 w-full whitespace-normal text-xs text-primary dark:text-gray-400 lg:text-sm"
   >
     {title}
   </p>

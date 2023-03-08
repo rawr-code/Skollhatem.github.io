@@ -1,0 +1,54 @@
+---
+import Sun from "../assets/sun.astro";
+import MoonStars from "../assets/moonStars.astro";
+---
+
+<button id="handle-theme" class="flex outline-none">
+  <span id="sun" class="block dark:hidden">
+    <Sun svgClass="w-5 h-5" pathClass="stoke-primary" />
+  </span>
+  <span id="moon" class="hidden dark:block">
+    <MoonStars svgClass="w-5 h-5" pathClass="stroke-white" />
+  </span>
+</button>
+
+<script type="module">
+  window.addEventListener("DOMContentLoaded", () => {
+    const btnHandle = document.getElementById("handle-theme");
+
+    const handleTheme = () => {
+      const currentTheme = localStorage.getItem("prefers_color_scheme_set");
+      if (currentTheme === "light") {
+        document.documentElement.classList.remove("light");
+        localStorage.setItem("prefers_color_scheme_set", "dark");
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("prefers_color_scheme_set", "light");
+        document.documentElement.classList.add("light");
+      }
+    };
+
+    btnHandle.addEventListener("click", handleTheme);
+    const theme = (() => {
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("prefers_color_scheme_set")
+      ) {
+        return localStorage.getItem("prefers_color_scheme_set");
+      }
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "light";
+    })();
+
+    if (theme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+
+    window.localStorage.setItem("prefers_color_scheme_set", theme);
+  });
+</script>

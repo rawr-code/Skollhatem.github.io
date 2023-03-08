@@ -1,0 +1,25 @@
+---
+export interface Props {
+  svgClass?: string;
+  pathClass?: string;
+}
+
+const { svgClass, pathClass } = Astro.props;
+---
+
+<svg
+  class={svgClass}
+  width="1em"
+  height="1em"
+  viewBox="0 0 20 21"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    class={pathClass}
+    d="M10 15.188a4.688 4.688 0 100-9.376 4.688 4.688 0 000 9.375zM10 3.313v-.626M4.918 5.418l-.441-.442M2.813 10.5h-.626M4.918 15.582l-.441.442M10 17.688v.625M15.082 15.582l.442.442M17.188 10.5h.625M15.082 5.418l.442-.442"
+    stroke="#263238"
+    stroke-width={1.5}
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+</svg>
