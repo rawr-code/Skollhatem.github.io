@@ -1,0 +1,34 @@
+---
+import i18next from "i18next";
+import { localizePath } from "astro-i18next";
+
+const supportedLanguages = ["en", "es"];
+const currentLanguage = i18next.language;
+const { pathname } = Astro.url;
+---
+
+<div class="flex">
+  {
+    supportedLanguages.map((language, index) => {
+      let value = localizePath(pathname, language);
+
+      const isSelected = language === currentLanguage;
+      const isLast = index + 1 === supportedLanguages.length;
+
+      const onClick = pathname !== value ? `location = '${value}';` : "";
+      return (
+        <button
+          class="flex text-sm uppercase transition-none dark:text-white lg:text-base"
+          onclick={onClick}
+        >
+          {isSelected ? (
+            <span class={`font-bold transition-none`}>{language}</span>
+          ) : (
+            language
+          )}
+          {!isLast && <span>|</span>}
+        </button>
+      );
+    })
+  }
+</div>

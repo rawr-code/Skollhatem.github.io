@@ -1,0 +1,37 @@
+{
+  "links": {
+    "about": "Sobre mi",
+    "works": "Proyectos",
+    "contact": "Contacto"
+  },
+  "home": {
+    "site": {
+      "title": "My awesome website!",
+      "description": "Here is the description of my awesome website!"
+    },
+    "hero": {
+      "title": "Hola, me llamo Emmanuel y soy",
+      "description": "I design and code beautyfully simple code I design and beautyfully simple things, and I love what I do design and code.",
+      "button": "Charlemos!",
+      "bubble": {
+        "top": "Hablar es fácil.",
+        "bottom": "Veamos tu código"
+      }
+    },
+    "videos": {
+      "title": "Videos Recientes",
+      "description": "Reproduce y disfruta"
+    },
+    "posts": {
+      "title": "Ultimas Publicaciones",
+      "description": "Articulos recientes"
+    }
+  },
+  "common": {
+    "a": "un"
+  },
+  "footer": {
+    "copyright": "Copyright",
+    "rights": "Todos los derechos reservados"
+  }
+}

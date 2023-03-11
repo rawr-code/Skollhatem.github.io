@@ -9,11 +9,13 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "i18": "astro-i18next generate"
   },
   "dependencies": {
     "@astrojs/tailwind": "^3.0.1",
     "astro": "^2.0.15",
+    "astro-i18next": "^1.0.0-beta.21",
     "tailwindcss": "^3.2.7"
   },
   "devDependencies": {

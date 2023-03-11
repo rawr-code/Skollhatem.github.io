@@ -1,4 +1,7 @@
 ---
+import i18next from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
+
 export interface Props {
   title: string;
 }
@@ -7,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={i18next.language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -80,45 +83,49 @@ const { title } = Astro.props;
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <!-- Astro -->
+    <HeadHrefLangs />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body class="bg-white dark:bg-primary">
     <slot />
+    <style is:global>
+      * {
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 350ms;
+      }
+      button,
+      input {
+        outline: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+      }
+      @font-face {
+        font-family: "Gugi";
+        src: url("/fonts/Gugi-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Space Mono";
+        src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Space Mono";
+        src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
+        font-weight: bold;
+        font-style: normal;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  * {
-    outline: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 350ms;
-  }
-  @font-face {
-    font-family: "Gugi";
-    src: url("/fonts/Gugi-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "Space Mono";
-    src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "Space Mono";
-    src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-  }
-</style>

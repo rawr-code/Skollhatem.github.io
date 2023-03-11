@@ -1,17 +1,17 @@
 ---
 import { t, changeLanguage } from "i18next";
-import Github from "../assets/github.astro";
-import Linkedin from "../assets/linkedin.astro";
-import Youtube from "../assets/youtube.astro";
-import LogoWrapper from "../assets/logoWrapper.astro";
-import Logo from "../assets/logo.astro";
-import Dots from "../assets/dots.astro";
-import Card from "../components/Card.astro";
-import Layout from "../layouts/Layout.astro";
-import ThemeSwitch from "../components/ThemeSwitch.astro";
-import LanguageSwitch from "../components/LanguageSwitch.astro";
+import Github from "../../assets/github.astro";
+import Linkedin from "../../assets/linkedin.astro";
+import Youtube from "../../assets/youtube.astro";
+import LogoWrapper from "../../assets/logoWrapper.astro";
+import Logo from "../../assets/logo.astro";
+import Dots from "../../assets/dots.astro";
+import Card from "../../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+import ThemeSwitch from "../../components/ThemeSwitch.astro";
+import LanguageSwitch from "../../components/LanguageSwitch.astro";
 
-changeLanguage("en");
+changeLanguage("es");
 
 const truncate = (text: string, length: number = 56) =>
   text.length > length - 5 ? `${text.substring(0, length - 5)}...` : text;
